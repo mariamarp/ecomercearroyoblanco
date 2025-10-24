@@ -8,7 +8,7 @@ const NavBar = () => {
       <div className="nav-container">
         <a className="brand-link" href="#">
           <img
-            src="\public\logo.png"
+            src="\logo.png"
             alt="Arroyo Blanco"
             width="120"
 
