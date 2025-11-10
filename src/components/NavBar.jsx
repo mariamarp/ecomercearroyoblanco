@@ -32,9 +32,7 @@ const NavBar = () => {
 
             {showCategories && (
               <ul className="dropdown-menu">
-                {categories.map((cat) => {
-                  // Soporte para ambas estructuras: string u objeto
-                  const slug = typeof cat === "string" ? cat : cat.slug;
+                {categories.map((cat) => {                  const slug = typeof cat === "string" ? cat : cat.slug;
                   const name = typeof cat === "string" ? cat : cat.name;
 
                   return (
