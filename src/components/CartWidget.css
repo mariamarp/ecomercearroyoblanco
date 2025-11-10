@@ -1,0 +1,10 @@
+.cart-widget {
+  position: relative; 
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
