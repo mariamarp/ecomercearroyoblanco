@@ -2,20 +2,17 @@ import React from 'react';
 import Item from './Item'; 
 import './ItemList.css';
 
-
-const ItemList = ({ products }) => {
-  if (!products || products.length === 0) {
-    return <p style={{ textAlign: 'center', marginTop: '50px' }}>No hay productos para mostrar.</p>;
-  }
-
-  return (
-    <div className="item-list">
-      {products.map(prod => (
-        <Item key={prod.id} {...prod} />
-      ))}
-    </div>
-  );
+const ItemList = ({ items }) => {
+    return (
+        <div className="item-list">
+            {items.map(item => (
+                <Item 
+                    key={item.id} 
+                    {...item}
+                />
+            ))}
+        </div>
+    );
 };
-
 
 export default ItemList;

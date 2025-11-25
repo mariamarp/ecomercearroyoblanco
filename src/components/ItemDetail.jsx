@@ -1,29 +1,40 @@
 import React from 'react';
 
 const ItemDetail = ({ product }) => {
-    const { title, price, description, images, stock } = product;
+    const { 
+        nombre, 
+        precio, 
+        stock, 
+        img, 
+        descripcion, 
+        categoria 
+    } = product;
     
-    const mainImage = images && images.length > 0 ? images[0] : '';
+    const mainImage = img; 
 
     return (
         <div className="detail-card">
-            <h2 className="detail-title">{title}</h2>
+            <h2 className="detail-title">{nombre}</h2> 
             
+
             <img 
                 src={mainImage} 
-                alt={title} 
+                alt={nombre} 
                 className="detail-image" 
                 style={{ width: '100%', maxWidth: '300px', height: 'auto', objectFit: 'cover' }}
             />
             
             <p className="detail-price">
-                Precio: **${price}**
+                Precio: **${precio}**
             </p>
             <p className="detail-description">
-                **Descripción:** {description}
+                **Descripción:** {descripcion || 'No hay descripción disponible.'} 
             </p>
             <p className="detail-stock" style={{ color: stock > 0 ? 'green' : 'red' }}>
                 {stock > 0 ? `¡En Stock! (${stock} unidades)` : 'Agotado'}
+            </p>
+            <p className="detail-category">
+                Categoría: {categoria}
             </p>
         </div>
     );
