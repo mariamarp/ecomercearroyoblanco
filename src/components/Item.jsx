@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const Item = ({ id, nombre, precio, stock, categoria, img }) => {
     return (
         <div className="item-card">
@@ -11,6 +10,13 @@ const Item = ({ id, nombre, precio, stock, categoria, img }) => {
             <p className="price">${precio.toFixed(2)}</p>
             <p className="stock">Stock disponible: {stock}</p>
             
+            <Link 
+                to={`/item/${id}`}
+                className="detail-button"
+                style={{  }}
+            >
+                Ver Detalle del Producto
+            </Link>
         </div>
     );
 };

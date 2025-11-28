@@ -1,6 +1,15 @@
-import { getFirestore, getDocs, collection, query, where } from "firebase/firestore";
+import { 
+    getFirestore, 
+    getDocs, 
+    collection, 
+    query, 
+    where, 
+    getDoc, 
+    doc,
+    addDoc,
+    serverTimestamp
+} from "firebase/firestore";
 import { app } from './config';
-
 
 export const db = getFirestore(app);
 
@@ -75,10 +84,11 @@ export const getUniqueCategories = async () => {
         
         const categoriesSet = new Set(); 
         
-        querySnapshot.forEach((doc) => {
+            querySnapshot.forEach((doc) => {
             const data = doc.data();
             if (data.categoria) {
-                categoriesSet.add(data.categoria); 
+                const cleanCategory = data.categoria.toLowerCase().trim();
+                categoriesSet.add(cleanCategory);
             }
         });
 
@@ -89,3 +99,12 @@ export const getUniqueCategories = async () => {
         return [];
     }
 };
+
+export const createOrder = async (order) =>{
+    try {
+    const docRef = await addDoc(collection(db, "orders"), order);
+    console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+    console.error("Error adding document: ", e);
+    }
+}
